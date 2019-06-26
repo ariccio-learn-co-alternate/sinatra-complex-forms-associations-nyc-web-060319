@@ -19,7 +19,8 @@ class PetsController < ApplicationController
       @pet = Pet.create!(name: params[:pet][:name], owner: @new_owner)
       # binding.pry
     else
-      @pet = Pet.create!(name: params[:pet][:name], owner: params[:owner])
+      @owner = Owner.find(params[:pet][:owner_id])
+      @pet = Pet.create!(name: params[:pet][:name], owner: @owner)
       # binding.pry
     end
     redirect to "pets/#{@pet.id}"
