@@ -45,12 +45,12 @@ class PetsController < ApplicationController
       # binding.pry
       @new_owner = Owner.create(params[:pet][:owner])
       # binding.pry
-      Pet.update!(@pet.id, name: params[:pet][:name], owner: @new_owner)
+      @pet.update!(name: params[:pet][:name], owner_id: @new_owner.id)
       # binding.pry
       # puts ""
     else
       # binding.pry
-      Pet.update!(@pet.id, params[:pet])
+      @pet.update!(name: params[:pet][:name], owner_id: params[:pet][:owner_id])
       # binding.pry
       # puts ""
     end
