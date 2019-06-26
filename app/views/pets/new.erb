@@ -1,2 +1,14 @@
 <h1>Create a new Pet</h1>
 
+<form action="/pets" method="post">
+    <input id="hidden" type="hidden" name="_method" value="patch">
+    <br>
+    <label>name:</label>
+      <input type="text" name="pet[name]" id="pet_name" value="@pet.name">
+    <br>
+
+    <label>Owner name:</label>
+    <input type="text" name="owner[name]" id="owner_name">
+    <br>
+    <input type="submit" name="submit" value="Create Pet">
+</form>
